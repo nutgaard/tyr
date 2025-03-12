@@ -20,7 +20,10 @@ object KabacConfig {
         install(BrukersRollerPip)
         install(BruksenhetPip(object : BruksenhetService {
             override fun hentBruksenhet(id: String): BruksenhetService.Bruksenhet? {
-                TODO("Not yet implemented")
+                return BruksenhetService.Bruksenhet(
+                    id = id,
+                    kommuneId = "1234"
+                )
             }
         }))
     }

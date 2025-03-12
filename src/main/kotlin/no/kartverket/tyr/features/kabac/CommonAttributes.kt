@@ -7,5 +7,6 @@ object CommonAttributes {
     private val base: String = CommonAttributes::class.java.simpleName
 
     val CALL = Key<ApplicationCall>("$base.call")
-    val BRUKSENHET_ID = Key<String>("$base.bruksenhet-id")
+    val BRUKSENHET_ID = Key<String>("$base.bruksenhetId")
+    val BRUKER_ID = Key<String>("$base.brukerId")
 }

@@ -43,6 +43,8 @@ private class DecisionOverride(
                 }
                 return decision
             }
+
+            override fun trace(): Set<Key<*>> = policies.flatMap { it.trace() }.toSet()
         }
 }
 
@@ -69,5 +71,7 @@ private class FirstApplicable : CombiningAlgorithm {
                 }
                 return Decision.NotApplicable("No applicable policy found")
             }
+
+            override fun trace(): Set<Key<*>> = policies.flatMap { it.trace() }.toSet()
         }
 }

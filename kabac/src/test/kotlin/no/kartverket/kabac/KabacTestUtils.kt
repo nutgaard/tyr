@@ -11,6 +11,7 @@ object KabacTestUtils {
             override val key = Key<Kabac.Policy>("test-policy")
 
             override fun evaluate(ctx: Kabac.EvaluationContext) = block(ctx)
+            override fun trace(): Set<Key<*>> = emptySet()
         }
 
     class PolicyTester(

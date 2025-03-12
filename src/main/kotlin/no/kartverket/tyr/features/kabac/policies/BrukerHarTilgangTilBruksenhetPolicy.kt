@@ -18,4 +18,8 @@ object BrukerHarTilgangTilBruksenhetPolicy : Kabac.Policy {
             else -> Decision.Deny("Bruker har ikke tilgang til kommunen", object : Decision.DenyCause {})
         }
     }
+
+    override fun trace(): Set<Key<*>> {
+        return setOf(BruksenhetPip.key, BrukersRollerPip.key)
+    }
 }

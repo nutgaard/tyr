@@ -9,6 +9,7 @@ data class AttributeValue<TValue>(
     private val value: TValue,
 ) : Kabac.PolicyInformationPoint<TValue> {
     override fun provide(ctx: Kabac.EvaluationContext): TValue = value
+    override fun trace(): Set<Key<*>> = setOf(key)
 
     companion object {
         operator fun <TValue : Any> invoke(

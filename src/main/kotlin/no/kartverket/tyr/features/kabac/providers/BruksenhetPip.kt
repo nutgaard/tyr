@@ -18,4 +18,6 @@ class BruksenhetPip(
         val bruksenhet = ctx.getValue(CommonAttributes.BRUKSENHET_ID)
         return service.hentBruksenhet(bruksenhet)
     }
+
+    override fun trace(): Set<Key<*>> = setOf(CommonAttributes.BRUKSENHET_ID)
 }

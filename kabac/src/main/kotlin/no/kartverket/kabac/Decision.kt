@@ -1,10 +1,13 @@
 package no.kartverket.kabac
 
+import kotlinx.serialization.Serializable
+
 sealed class Decision(
     var type: Type,
 ) {
     interface DenyCause
 
+    @Serializable
     enum class Type { PERMIT, DENY, NOT_APPLICABLE }
 
     fun isApplicable(): Boolean =
@@ -39,7 +42,8 @@ sealed class Decision(
 
     class Deny(
         val message: String,
-        val cause: DenyCause,
+        @kotlinx.serialization.Transient
+        val cause: DenyCause = NO_APPLICABLE_POLICY_FOUND,
     ) : Decision(Type.DENY) {
         override fun toString() = "Deny($message)"
     }

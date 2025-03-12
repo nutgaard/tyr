@@ -8,8 +8,8 @@ object Kabac {
     }
 
     interface EvaluationContext : EvaluationReporter {
+        val register: Map<Key<*>, PolicyInformationPoint<*>>
         fun <TValue> getValue(attributeKey: AttributeKey<TValue>): TValue
-
         fun <TValue> getValue(key: Key<TValue>): TValue
     }
 
@@ -23,12 +23,15 @@ object Kabac {
         fun getReport(): String
     }
 
-    interface Policy {
+    interface Traceable {
+        fun trace(): Set<Key<*>>
+    }
+    interface Policy : Traceable {
         val key: Key<Policy>
         fun evaluate(ctx: EvaluationContext): Decision
     }
 
-    interface PolicyInformationPoint<TValue> : AttributeKey<TValue> {
+    interface PolicyInformationPoint<TValue> : AttributeKey<TValue>, Traceable {
         fun provide(ctx: EvaluationContext): TValue
     }
 

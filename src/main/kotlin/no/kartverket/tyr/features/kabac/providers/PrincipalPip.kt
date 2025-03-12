@@ -15,4 +15,6 @@ object PrincipalPip : Kabac.PolicyInformationPoint<Security.TokenPrincipal> {
             "Could not find principal from $call"
         }
     }
+
+    override fun trace(): Set<Key<*>> = setOf(CommonAttributes.CALL)
 }

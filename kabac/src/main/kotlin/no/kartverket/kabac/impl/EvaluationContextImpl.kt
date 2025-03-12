@@ -9,7 +9,7 @@ class EvaluationContextImpl(
     providers: List<Kabac.PolicyInformationPoint<*>>,
 ) : Kabac.EvaluationContext,
     Kabac.EvaluationReporter by EvaluationReporterImpl() {
-    private val register = providers.associateBy { it.key }
+    override val register = providers.associateBy { it.key }
     private val cache = mutableMapOf<Key<*>, Any?>()
     private val keystack = KeyStack()
 

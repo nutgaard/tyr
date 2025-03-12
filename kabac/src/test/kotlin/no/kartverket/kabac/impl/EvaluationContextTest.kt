@@ -87,6 +87,7 @@ internal class EvaluationContextTest {
                     executionCount++
                     return "mock-value"
                 }
+                override fun trace(): Set<Key<*>> = emptySet()
             }
         val ctx = EvaluationContextImpl(listOf(fastMockProvider))
 
@@ -164,5 +165,6 @@ internal class EvaluationContextTest {
         override val key: Key<T> = key
 
         override fun provide(ctx: Kabac.EvaluationContext): T = ctx.getValue(dependent)
+        override fun trace(): Set<Key<*>> = emptySet()
     }
 }

@@ -16,7 +16,9 @@ import io.ktor.server.routing.*
 import no.kartverket.tyr.plugins.Logging
 import no.kartverket.tyr.plugins.Monitoring
 import no.kartverket.tyr.plugins.Security
+import org.slf4j.LoggerFactory
 
+val logger = LoggerFactory.getLogger("Root")
 fun main() {
     val server = embeddedServer(Netty, port = 8080) {
         install(Monitoring.Plugin)
@@ -43,6 +45,7 @@ fun main() {
 
         install(StatusPages) {
             exception<Throwable> { call, cause ->
+                logger.error("Unhandled error", cause)
                 call.respondText(text = "500: $cause", status = HttpStatusCode.InternalServerError)
             }
         }

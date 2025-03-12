@@ -13,18 +13,24 @@ internal class KabacTest {
         override val key: Key<String> = Key("dummy-provider")
 
         override fun provide(ctx: Kabac.EvaluationContext): String = "dummy value"
+
+        override fun trace(): Set<Key<*>> = emptySet()
     }
 
     object DummyDependentProvider : Kabac.PolicyInformationPoint<Int> {
         override val key: Key<Int> = Key("dummy-dependent-provider")
 
         override fun provide(ctx: Kabac.EvaluationContext): Int = ctx.getValue(DummyProvider).length
+
+        override fun trace(): Set<Key<*>> = setOf(DummyProvider.key)
     }
 
     object ErrorThrowingProvider : Kabac.PolicyInformationPoint<String> {
         override val key: Key<String> = Key("error-throwing-provider")
 
         override fun provide(ctx: Kabac.EvaluationContext): String = throw IllegalArgumentException("Something went wrong")
+
+        override fun trace(): Set<Key<*>> = emptySet()
     }
 
     @Test
