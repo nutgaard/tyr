@@ -3,3 +3,4 @@ plugins {
 }
 rootProject.name = "tyr"
 include("kabac")
+include("test-utils")

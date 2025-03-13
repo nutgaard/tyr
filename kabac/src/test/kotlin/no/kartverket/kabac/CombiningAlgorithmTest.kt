@@ -1,7 +1,7 @@
 package no.kartverket.kabac
 
-import no.kartverket.kabac.KabacTestUtils.createTestPolicy
 import no.kartverket.kabac.impl.EvaluationContextImpl
+import no.kartverket.test.kabac.KabacTestUtils.createTestPolicy
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Named
 import org.junit.jupiter.params.ParameterizedTest

@@ -1,5 +1,7 @@
-package no.kartverket.kabac
+package no.kartverket.test.kabac
 
+import no.kartverket.kabac.Decision
+import no.kartverket.kabac.Kabac
 import no.kartverket.kabac.impl.EvaluationContextImpl
 import no.kartverket.kabac.utils.Key
 import org.junit.jupiter.api.Assertions.assertEquals

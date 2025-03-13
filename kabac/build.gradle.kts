@@ -17,6 +17,7 @@ dependencies {
     testImplementation(kotlin("test"))
 //    testImplementation(libs.junit.api)
     testImplementation(libs.junit.params)
+    testImplementation(project(":test-utils"))
 //    testImplementation(libs.junit.engine)
 }
 

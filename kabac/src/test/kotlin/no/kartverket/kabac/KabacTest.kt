@@ -1,9 +1,9 @@
 package no.kartverket.kabac
 
-import no.kartverket.kabac.KabacTestUtils.createTestPolicy
 import no.kartverket.kabac.impl.PolicyDecisionPointImpl
 import no.kartverket.kabac.impl.PolicyEnforcementPointImpl
 import no.kartverket.kabac.utils.Key
+import no.kartverket.test.kabac.KabacTestUtils.createTestPolicy
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
