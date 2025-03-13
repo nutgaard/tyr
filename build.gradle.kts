@@ -42,15 +42,16 @@ dependencies {
     implementation(libs.ktor.server.auth.jwt)
     implementation(libs.ktor.server.netty)
     implementation(libs.logback.classic)
+    testImplementation(kotlin("test"))
     testImplementation(libs.ktor.server.test.host)
-    testImplementation(libs.junit.api)
-    testRuntimeOnly(libs.junit.engine)
+//    testImplementation(libs.junit.api)
+//    testRuntimeOnly(libs.junit.engine)
 }
 
 tasks.named<Test>("test") {
     useJUnitPlatform()
 
     testLogging {
-        events("passed", "failed")
+        events("passed", "failed", "skipped")
     }
 }

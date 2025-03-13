@@ -14,9 +14,10 @@ dependencies {
     implementation(kotlin("stdlib"))
     implementation(libs.ktor.serialization.kotlinx.json)
 
-    testImplementation(libs.junit.api)
+    testImplementation(kotlin("test"))
+//    testImplementation(libs.junit.api)
     testImplementation(libs.junit.params)
-    testImplementation(libs.junit.engine)
+//    testImplementation(libs.junit.engine)
 }
 
 tasks.test {
