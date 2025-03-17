@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.ktor.server.auth)
     implementation(libs.ktor.server.auth.jwt)
     implementation(libs.ktor.server.netty)
+    implementation(libs.ktor.server.openapi.generator)
     implementation(libs.logback.classic)
     testImplementation(kotlin("test"))
     testImplementation(libs.ktor.server.test.host)

@@ -1,5 +1,6 @@
 package no.kartverket.tyr
 
+import io.github.smiley4.ktoropenapi.OpenApi
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -13,6 +14,9 @@ import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.plugins.swagger.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import no.kartverket.tyr.dataminimize.multiapi.multiapiRoutes
+import no.kartverket.tyr.dataminimize.nulling.nullingRoutes
+import no.kartverket.tyr.dataminimize.restricted.restrictedRoutes
 import no.kartverket.tyr.plugins.Logging
 import no.kartverket.tyr.plugins.Monitoring
 import no.kartverket.tyr.plugins.Security
@@ -49,12 +53,16 @@ fun main() {
                 call.respondText(text = "500: $cause", status = HttpStatusCode.InternalServerError)
             }
         }
+        install(OpenApi)
 
         routing {
             swaggerUI(path = "swagger")
         }
 
         module()
+        multiapiRoutes()
+        nullingRoutes()
+        restrictedRoutes()
     }
 
     server.start(wait = true)
