@@ -1,0 +1,11 @@
+name: Test workflow download
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    name: Test wsdl get
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl https://prodtest.matrikkel.no/matrikkelapi/wsapi/v1/StoreServiceWS?xsd=kommune.xsd
